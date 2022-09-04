@@ -71,7 +71,7 @@ func (d *EmissionRecord) CalculateTotalCO2() (*float64, error) {
 		return nil, err
 	}
 
-	exclusiveEnd := end.Truncate(time.Hour * 24)
+	exclusiveEnd := end.Truncate(time.Second * 1)
 	diff := exclusiveEnd.Sub(*start)
 	d.TotalCO2 = float64(*co2) * diff.Seconds()
 
